@@ -3,7 +3,8 @@
 ## Arudino側のプログラム
 ・sensor.ino
 ## python側プログラム
-・sensor.py
+・sensor.py...シリアルモニタ-<br>
+・server.py...falsk可視化システム
 ## sensor.pyの仕組み
 ①まずarudinoからセンサーのデータをシリアル通信で受信する.<br>
 ②受信したデータをmysqlに保存する.<br>
