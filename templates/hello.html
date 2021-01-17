@@ -1,6 +1,61 @@
 {% extends "layout.html" %}
 {% block content %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 <h1>Temperature-visualization</h1>
-    <p>計測時刻：日付:{% for member in members %}{{ member.day}}{% endfor %}時間：{% for member in members %}{{ member.time}}{% endfor %}</p>
-    <p>現在の温度{% for member in members %}{{ member.temperature}}{% endfor %}°</p> 
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="hello.html">時</a></li>
+      <li class="breadcrumb-item"><a href="hello.html">日</a></li>
+      <li class="breadcrumb-item"><a href="hello1.html">週</a></li>
+      <li class="breadcrumb-item"><a href="hello2.html">月</a></li>
+    </ol>
+  </nav>
+    <center>
+        <canvas id="myLineChart"></canvas>
+        <br>
+        <pre>
+        <b>現在の気温</b>
+        日付:{% for member in members %}{{ member.day}}{% endfor %}
+        時間：{% for member in members %}{{ member.time}}{% endfor %}
+        現在の温度{% for member in members %}{{ member.temperature}}{% endfor %}°
+        </pre>
+    </center>
+
+
+  <script>
+    var ctx = document.getElementById("myLineChart");
+    var myLineChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['0時', '1時', '2時', '3時', '4時', '5時', '6時'],
+        datasets: [
+          {
+            label: '温度',
+            data: [25, 27, 27, 25, 26, 27, 25, 21],
+            borderColor: "rgba(0,0,255,1)",
+            backgroundColor: "rgba(0,0,0,0)"
+          }
+        ],
+      },
+      options: {
+        title: {
+          display: true,
+          text: '温度(時)'
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              suggestedMax: 40,
+              suggestedMin: 0,
+              stepSize: 10,
+              callback: function(value, index, values){
+                return  value +  '度'
+              }
+            }
+          }]
+        },
+      }
+    });
+    </script>
+
 {% endblock %}
