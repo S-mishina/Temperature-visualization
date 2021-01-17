@@ -1,0 +1,6 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Temperature-visualization</h1>
+    <p>計測時刻：日付:{% for member in members %}{{ member.day}}{% endfor %}時間：{% for member in members %}{{ member.time}}{% endfor %}</p>
+    <p>現在の温度{% for member in members %}{{ member.temperature}}{% endfor %}°</p> 
+{% endblock %}
