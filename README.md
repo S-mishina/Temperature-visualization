@@ -12,7 +12,8 @@
 ## ラズパイとの連携
 (今後検討)
 ## 運用サーバとの連携(主に可視化部分)
-(今後検討)
+現状の構成<br>
+<img width="490" alt="スクリーンショット 2021-01-20 15 52 26" src="https://user-images.githubusercontent.com/45090872/105137974-92411600-5b37-11eb-83d3-caa25fb626fe.png">
 ## Arudino側のプログラム
 ・sensor.ino
 ## python側プログラム
