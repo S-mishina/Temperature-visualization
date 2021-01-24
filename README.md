@@ -28,7 +28,7 @@ flaskを利用したweb画面での可視化をする為のプログラム<br>
 ・日別の温度可視化（5日分）
 ## 画面UI（Flask）
 <center>
-<img width="578" alt="スクリーンショット 2021-01-18 3 41 00" src="https://user-images.githubusercontent.com/45090872/104852546-fd73c800-593e-11eb-833a-a9056c66e775.png">
+
 </center>
 
 
