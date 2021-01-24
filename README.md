@@ -8,7 +8,7 @@
 ※LINEAPIの利用<br>
 ・Alexaアプリとの連携<br>
 ## 回路図について
-![Uploading スクリーンショット 2021-01-24 21.32.31.png…]()
+<img width="477" alt="スクリーンショット 2021-01-24 21 32 31" src="https://user-images.githubusercontent.com/45090872/105630312-cbf18400-5e8b-11eb-9a75-196ffc5915ad.png">
 ## ラズパイ or jetsonとの連携
 (今後検討)
 ## 運用サーバとの連携(主に可視化部分)
