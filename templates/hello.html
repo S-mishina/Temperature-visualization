@@ -4,34 +4,40 @@
 <h1>Temperature-visualization</h1>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="hello.html">時</a></li>
       <li class="breadcrumb-item"><a href="hello.html">日</a></li>
-      <li class="breadcrumb-item"><a href="hello1.html">週</a></li>
-      <li class="breadcrumb-item"><a href="hello2.html">月</a></li>
+      <!--<li class="breadcrumb-item"><a href="hello.html">週</a></li>-->
+      <!--<li class="breadcrumb-item"><a href="hello3.html">月</a></li>-->
     </ol>
   </nav>
+  <h2>5日間の温度データ</h2>
+  <canvas id="myLineChart"></canvas>
     <center>
-        <canvas id="myLineChart"></canvas>
+
         <br>
         <pre>
+    <b>
         <b>現在の気温</b>
         日付:{% for member in members %}{{ member.day}}{% endfor %}
         時間：{% for member in members %}{{ member.time}}{% endfor %}
         現在の温度{% for member in members %}{{ member.temperature}}{% endfor %}°
         </pre>
+    </b>
     </center>
-
-
   <script>
+    var today1 = "{% for today1 in today1 %}{{today1.temperature}}{% endfor %}"
+    var today2 = "{% for today2 in today2 %}{{today2.temperature}}{% endfor %}"
+    var today3 = "{% for today3 in today3 %}{{today3.temperature}}{% endfor %}"
+    var today4 = "{% for today4 in today4 %}{{today4.temperature}}{% endfor %}"
+    var today5 = "{% for today5 in today5 %}{{today5.temperature}}{% endfor %}"
     var ctx = document.getElementById("myLineChart");
     var myLineChart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ['0時', '1時', '2時', '3時', '4時', '5時', '6時'],
+        labels: ['5日前', '4日前', '3日前', '2日前', '1日前'],
         datasets: [
           {
             label: '温度',
-            data: [25, 27, 27, 25, 26, 27, 25, 21],
+            data: [today5, today4, today3, today2, today1],
             borderColor: "rgba(0,0,255,1)",
             backgroundColor: "rgba(0,0,0,0)"
           }
