@@ -12,7 +12,7 @@
 
 ## 運用サーバとの連携(主に可視化部分)
 現状の構成<br>
-
+<img width="759" alt="スクリーンショット 2021-01-24 21 44 12" src="https://user-images.githubusercontent.com/45090872/105630615-8cc43280-5e8d-11eb-8f3d-21bf316c30e3.png">
 ## Arudino側のプログラム
 ・sensor.ino
 ## python側プログラム
