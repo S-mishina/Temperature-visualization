@@ -9,7 +9,7 @@
       <!--<li class="breadcrumb-item"><a href="hello3.html">月</a></li>-->
     </ol>
   </nav>
-  <h2>本日4時間の温度データ</h2>
+  <h2>4時間の温度データ</h2>
   <canvas id="myLineChart"></canvas>
   <br>
   <br>
@@ -36,7 +36,7 @@
     var myLineChart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ['2時間前', '1時間前', '現在'],
+        labels: ['4時間前','3時間前', '2時間前', '１時間前'],
         datasets: [
           {
             label: '温度',

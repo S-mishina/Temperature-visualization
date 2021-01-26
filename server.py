@@ -155,39 +155,47 @@ def hello2():
         )
     now = datetime.datetime.now()
     now1=now - datetime.timedelta(hours=1)
-    now2=now1.strftime('%H')#19
-    now3=now.strftime('%H')#20
-    now4=now1 - datetime.timedelta(hours=1)
-    now5=now4.strftime('%H')#18
-    now6=now4 - datetime.timedelta(hours=1)
-    now7=now6.strftime('%H')#17
+    now4=now - datetime.timedelta(hours=2)
+    now6=now - datetime.timedelta(hours=3)
+    now8=now - datetime.timedelta(hours=4)
+    now3=now1.strftime('%H')#20
+    now2=now4.strftime('%H')#19
+    now5=now6.strftime('%H')#18
+    now7=now8.strftime('%H')#17
     day = datetime.date.today()
     cur = db.cursor()
     cur1 = db.cursor()
     cur2 = db.cursor()
     cur3 = db.cursor()
+    cur4 = db.cursor()
     t1day="SELECT * FROM `temperature` WHERE `day`="+"'"+str(day)+"'" +"ORDER BY `time` DESC LIMIT 1"
-    t1day1="select avg(temperature) as temperature from temperature WHERE day="+"'"+str(day)+"'"+ "and time>="+"'"+str(now2)+":00:00"+"'"+" and time<="+"'"+str(now3)+":59:59"+"'"+";"
-    t1day2="select avg(temperature) as temperature from temperature WHERE day="+"'"+str(day)+"'"+ "and time>="+"'"+str(now5)+":00:00"+"'"+" and time<="+"'"+str(now2)+":59:59"+"'"+";"
-    t1day3="select avg(temperature) as temperature from temperature WHERE day="+"'"+str(day)+"'"+ "and time>="+"'"+str(now7)+":00:00"+"'"+" and time<="+"'"+str(now5)+":59:59"+"'"+";"
+    t1day1="select avg(temperature) as temperature from temperature WHERE day="+"'"+str(day)+"'"+ "and time>="+"'"+str(now2)+":00:00"+"'"+" and time<="+"'"+str(now3)+":00:00"+"'"+";"
+    t1day2="select avg(temperature) as temperature from temperature WHERE day="+"'"+str(day)+"'"+ "and time>="+"'"+str(now5)+":00:00"+"'"+" and time<="+"'"+str(now2)+":00:00"+"'"+";"
+    t1day3="select avg(temperature) as temperature from temperature WHERE day="+"'"+str(day)+"'"+ "and time>="+"'"+str(now7)+":00:00"+"'"+" and time<="+"'"+str(now5)+":00:00"+"'"+";"
+    t1day4="select avg(temperature) as temperature from temperature WHERE day="+"'"+str(day)+"'"+ "and time>="+"'"+str(now7)+":00:00"+"'"+" and time<="+"'"+str(now5)+":00:00"+"'"+";"
     cur.execute(t1day)
     cur1.execute(t1day1)
     cur2.execute(t1day2)
     cur3.execute(t1day3)
+    cur4.execute(t1day4)
     test = cur.fetchall()
     test1 = cur1.fetchall()
-    test12 = cur2.fetchall()
+    test2 = cur2.fetchall()
     test3 = cur3.fetchall()
+    test4 = cur3.fetchall()
     cur.close()
     cur1.close()
     cur2.close()
     cur3.close()
+    cur.close()
     db.close()
     print(t1day1)
+    print(test1)
     print(t1day2)
+    print(test2)
     print(t1day3)
-    return render_template('hello1.html', title='本日の時間別部屋の温度可視化', test1=test1, test12 = test12 , test3=test3) 
-
+    print(t1day4)
+    return render_template('hello1.html', title='時別部屋の温度可視化', test=test,test1=test1,test2=test2,test3=test3,test4=test4)
 
 if __name__ == '__main__':
     app.run(debug=True, port=8085)
