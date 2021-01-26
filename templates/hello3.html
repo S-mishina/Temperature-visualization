@@ -4,12 +4,12 @@
 <h1>Temperature-visualization</h1>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="hello1.html">時</a></li>
-      <li class="breadcrumb-item"><a href="hello.html">週</a></li>
-      <li class="breadcrumb-item"><a href="hello3.html">月</a></li>
+        <li class="breadcrumb-item"><a href="hello1.html">時</a></li>
+        <li class="breadcrumb-item"><a href="hello.html">週</a></li>
+        <li class="breadcrumb-item"><a href="hello3.html">月</a></li>
     </ol>
   </nav>
-  <h2>5日間の温度データ</h2>
+  <h2>5ヶ月間の気温データ</h2>
   <canvas id="myLineChart"></canvas>
     <center>
 
@@ -24,20 +24,20 @@
     </b>
     </center>
   <script>
-    var today1 = "{% for today1 in today1 %}{{today1.temperature}}{% endfor %}"
-    var today2 = "{% for today2 in today2 %}{{today2.temperature}}{% endfor %}"
-    var today3 = "{% for today3 in today3 %}{{today3.temperature}}{% endfor %}"
-    var today4 = "{% for today4 in today4 %}{{today4.temperature}}{% endfor %}"
-    var today5 = "{% for today5 in today5 %}{{today5.temperature}}{% endfor %}"
+    var t1oday1 = "{% for test5 in test5 %}{{test5.temperature}}{% endfor %}"
+    var t1oday2 = "{% for test4 in test4 %}{{test4.temperature}}{% endfor %}"
+    var t1oday3 = "{% for test3 in test3 %}{{test3.temperature}}{% endfor %}"
+    var t1oday4 = "{% for test2 in test2 %}{{test2.temperature}}{% endfor %}"
+    var t1oday5 = "{% for test1 in test1 %}{{test1.temperature}}{% endfor %}"
     var ctx = document.getElementById("myLineChart");
     var myLineChart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ['5日前', '4日前', '3日前', '2日前', '1日前'],
+        labels: ['４ヶ月前', '３ヶ月前', '2ヶ月前', '１ヶ月前', '本月'],
         datasets: [
           {
             label: '温度',
-            data: [today5, today4, today3, today2, today1],
+            data: [t1oday5, t1oday4, t1oday3, t1oday2, t1oday1],
             borderColor: "rgba(0,0,255,1)",
             backgroundColor: "rgba(0,0,0,0)"
           }

@@ -6,6 +6,7 @@ from flask import render_template, url_for
 from flask import request
 import numpy 
 import json
+from dateutil.relativedelta import relativedelta
 
 
 app = Flask(__name__)
@@ -189,7 +190,7 @@ def hello2():
     cur1.close()
     cur2.close()
     cur3.close()
-    cur.close()
+    cur4.close()
     db.close()
     print(t1day1)
     print(test1)
@@ -198,6 +199,62 @@ def hello2():
     print(t1day3)
     print(t1day4)
     return render_template('hello1.html', title='時別部屋の温度可視化', test1=test1,test2=test2,test3=test3,test4=test4,test5=test5)
-
+@app.route('/hello3.html')
+def hello3():
+    #db setting
+    db = pymysql.connect(
+            host='127.0.0.1',
+            user='root',
+            password='',
+            db='temperature',
+            charset='utf8',
+            cursorclass=pymysql.cursors.DictCursor,
+        )
+    now = datetime.datetime.now()
+    now1=now - relativedelta(months=1)
+    now4=now - relativedelta(months=2)
+    now6=now - relativedelta(months=3)
+    now8=now - relativedelta(months=4)
+    now=now.strftime('%Y-%m')#1
+    now3=now1.strftime('%Y-%m')#01
+    now2=now4.strftime('%Y-%m')#11
+    now5=now6.strftime('%Y-%m')#12
+    now7=now8.strftime('%Y-%m')#10
+    cur = db.cursor()
+    cur1 = db.cursor()
+    cur2 = db.cursor()
+    cur3 = db.cursor()
+    cur4 = db.cursor()
+    cur5 = db.cursor()
+    t1day5="select avg(temperature) as temperature from temperature WHERE day>="+"'"+str(now)+"-01"+"'"+" and day<="+"'"+str(now)+"-31"+"'"+";"
+    t1day4="select avg(temperature) as temperature from temperature WHERE day>="+"'"+str(now3)+"-01"+"'"+" and day<="+"'"+str(now3)+"-31"+"'"+";"
+    t1day3="select avg(temperature) as temperature from temperature WHERE day>="+"'"+str(now2)+"-01"+"'"+" and day<="+"'"+str(now2)+"-31"+"'"+";"
+    t1day2="select avg(temperature) as temperature from temperature WHERE day>="+"'"+str(now5)+"-01"+"'"+" and day<="+"'"+str(now5)+"-31"+"'"+";"
+    t1day1="select avg(temperature) as temperature from temperature WHERE day>="+"'"+str(now7)+"-01"+"'"+" and day<="+"'"+str(now7)+"-31"+"'"+";"
+    cur1.execute(t1day1)
+    cur2.execute(t1day2)
+    cur3.execute(t1day3)
+    cur4.execute(t1day4)
+    cur5.execute(t1day5)
+    cur.execute(t1day1)
+    test1 = cur.fetchall()
+    test5 = cur1.fetchall()
+    test2 = cur2.fetchall()
+    test3 = cur3.fetchall()
+    test4 = cur4.fetchall()
+    test5 = cur5.fetchall()
+    cur.close()
+    cur1.close()
+    cur2.close()
+    cur3.close()
+    cur4.close()
+    cur5.close()
+    db.close()
+    print(test5)
+    print(test4)
+    print(test3)
+    print(test2)
+    print(test1)
+    return render_template('hello3.html', title='月別部屋の温度可視化',test5=test5,test1=test1,test2=test2,test3=test3,test4=test4)
 if __name__ == '__main__':
     app.run(debug=True, port=8085)
