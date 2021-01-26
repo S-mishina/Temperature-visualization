@@ -30,7 +30,9 @@ flaskを利用したweb画面での可視化をする為のプログラム<br>
 <center>
 <img width="817" alt="スクリーンショット 2021-01-24 21 41 30" src="https://user-images.githubusercontent.com/45090872/105630509-014aa180-5e8d-11eb-8c1e-a4b92fedb09b.png">
 </center>
-
+<center>
+<img width="588" alt="スクリーンショット 2021-01-26 9 51 34" src="https://user-images.githubusercontent.com/45090872/105784411-1a05a500-5fbc-11eb-83d0-bae5c91d6f0c.png">
+<center>
 
 
 
