@@ -178,11 +178,13 @@ def hello2():
     cur2.execute(t1day2)
     cur3.execute(t1day3)
     cur4.execute(t1day4)
-    test = cur.fetchall()
+    
     test1 = cur1.fetchall()
     test2 = cur2.fetchall()
     test3 = cur3.fetchall()
     test4 = cur3.fetchall()
+    test5 = cur.fetchall()
+
     cur.close()
     cur1.close()
     cur2.close()
@@ -195,7 +197,7 @@ def hello2():
     print(test2)
     print(t1day3)
     print(t1day4)
-    return render_template('hello1.html', title='時別部屋の温度可視化', test=test,test1=test1,test2=test2,test3=test3,test4=test4)
+    return render_template('hello1.html', title='時別部屋の温度可視化', test1=test1,test2=test2,test3=test3,test4=test4,test5=test5)
 
 if __name__ == '__main__':
     app.run(debug=True, port=8085)

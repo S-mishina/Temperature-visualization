@@ -13,34 +13,34 @@
   <canvas id="myLineChart"></canvas>
   <br>
   <br>
-  <pre>現在時刻が0時の場合には現在時刻のみが表示されます.</pre>
+  <p>現在時刻が0時の場合には現在時刻のみが表示されます.</p>
     <center>
 
         <br>
         <pre>
     <b>
         <b>現在の気温</b>
-        日付:{% for member in members %}{{ member.day}}{% endfor %}
-        時間：{% for member in members %}{{ member.time}}{% endfor %}
-        現在の温度{% for member in members %}{{ member.temperature}}{% endfor %}°
+        日付:{% for test5 in test5 %}{{ test5.day}}{% endfor %}
+        時間：{% for test5 in test5 %}{{ test5.time}}{% endfor %}
+        現在の温度{% for test5 in test5 %}{{ test5.temperature}}{% endfor %}°
         </pre>
     </b>
     </center>
   <script>
     var t1 = "{% for test1 in test1 %}{{test1.temperature}}{% endfor %}"
     var t2 = "{% for test2 in test2 %}{{test2.temperature}}{% endfor %}"
-    var t3 = "{% for members4 in today3 %}{{members3.temperature}}{% endfor %}"
-    var t4 = "{% for members5 in today4 %}{{members4.temperature}}{% endfor %}"
-    var today5 = "{% for today5 in today5 %}{{today5.temperature}}{% endfor %}"
+    var t3 = "{% for test3 in test3 %}{{test3.temperature}}{% endfor %}"
+    var t4 = "{% for test4 in test4 %}{{test4.temperature}}{% endfor %}"
+    var t = "{% for test5 in test5 %}{{test5.temperature}}{% endfor %}"
     var ctx = document.getElementById("myLineChart");
     var myLineChart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ['4時間前','3時間前', '2時間前', '１時間前'],
+        labels: ['4時間前','3時間前', '2時間前', '１時間前','現在'],
         datasets: [
           {
             label: '温度',
-            data: [t4, t3, t2, t1],
+            data: [t4, t3, t2, t1,t],
             borderColor: "rgba(0,0,255,1)",
             backgroundColor: "rgba(0,0,0,0)"
           }
