@@ -9,8 +9,11 @@
       <!--<li class="breadcrumb-item"><a href="hello3.html">月</a></li>-->
     </ol>
   </nav>
-  <h2>5日間の温度データ</h2>
+  <h2>本日4時間の温度データ</h2>
   <canvas id="myLineChart"></canvas>
+  <br>
+  <br>
+  <pre>現在時刻が0時の場合には現在時刻のみが表示されます.</pre>
     <center>
 
         <br>
@@ -24,20 +27,20 @@
     </b>
     </center>
   <script>
-    var today1 = "{% for today1 in today1 %}{{today1.temperature}}{% endfor %}"
-    var today2 = "{% for today2 in today2 %}{{today2.temperature}}{% endfor %}"
-    var today3 = "{% for today3 in today3 %}{{today3.temperature}}{% endfor %}"
-    var today4 = "{% for today4 in today4 %}{{today4.temperature}}{% endfor %}"
+    var t1 = "{% for test1 in test1 %}{{test1.temperature}}{% endfor %}"
+    var t2 = "{% for test2 in test2 %}{{test2.temperature}}{% endfor %}"
+    var t3 = "{% for members4 in today3 %}{{members3.temperature}}{% endfor %}"
+    var t4 = "{% for members5 in today4 %}{{members4.temperature}}{% endfor %}"
     var today5 = "{% for today5 in today5 %}{{today5.temperature}}{% endfor %}"
     var ctx = document.getElementById("myLineChart");
     var myLineChart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ['5日前', '4日前', '3日前', '2日前', '1日前'],
+        labels: ['2時間前', '1時間前', '現在'],
         datasets: [
           {
             label: '温度',
-            data: [today5, today4, today3, today2, today1],
+            data: [t4, t3, t2, t1],
             borderColor: "rgba(0,0,255,1)",
             backgroundColor: "rgba(0,0,0,0)"
           }

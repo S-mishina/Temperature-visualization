@@ -21,17 +21,19 @@ while (1):
     s3=s2.replace("n", '')
     s4=s3.replace("\\", '')
     s5=s4.replace("'", '')
-    dt_now = datetime.datetime.now()
-    print("現在時刻:"+str(dt_now))
+    day = datetime.date.today()
+    time1 = datetime.datetime.now()
+    time2=str(time1.hour)+":"+str(time1.minute)+":"+str(time1.second)
+    print("現在時刻:"+str(s))
     print(str(s5)+"°")
     # コネクションが切れた時に再接続してくれるよう設定
     conn.ping(reconnect=True)
     # 接続できているかどうか確認
     print(conn.is_connected())
     cur = conn.cursor()
-    cur.execute("INSERT INTO `test` (`day`, `temperature`)"+ "VALUES"+ "("+"'"+str(dt_now)+"'"+","+str(s5)+")")
+    cur.execute("INSERT INTO `temperature` (`day`,`time`, `temperature`)"+ "VALUES"+ "("+"'"+str(day)+"'"+","+"'"+str(time2)+"'"+","+str(s5)+")")
     conn.commit()
     cur.close()
     conn.close()
-    time.sleep(0.1)
+    time.sleep(0.2)
 
