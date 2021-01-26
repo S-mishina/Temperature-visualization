@@ -7,6 +7,7 @@
 ・レポート機能<br>
 ※LINEAPIの利用<br>
 ・Alexaアプリとの連携<br>
+・湿度の可視化
 ## 回路図について
 <img width="477" alt="スクリーンショット 2021-01-24 21 32 31" src="https://user-images.githubusercontent.com/45090872/105630312-cbf18400-5e8b-11eb-9a75-196ffc5915ad.png">
 
