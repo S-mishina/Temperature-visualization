@@ -2,13 +2,13 @@
 {% block content %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 <h1>Temperature-visualization</h1>
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="hello1.html">時</a></li>
-      <li class="breadcrumb-item"><a href="hello.html">週</a></li>
-      <li class="breadcrumb-item"><a href="hello3.html">月</a></li>
-    </ol>
-  </nav>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <ul class="nav navbar-nav">
+  <li><a class="nav-item nav-link" href="hello1.html">時間別表示</a></li>
+  <li><a class="nav-item nav-link" href="hello.html">週別表示</a></li>
+  <li><a class="nav-item nav-link" href="hello3.html">月別表示</a></li>
+</ul>
+</nav>
   <h2>5時間の温度データ</h2>
   <canvas id="myLineChart"></canvas>
   <br>
